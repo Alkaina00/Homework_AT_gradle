@@ -1,7 +1,7 @@
-package homework14;
+package ru.alfa.homework14;
 
 import org.junit.jupiter.api.Test;
-import ru.alfa.homework14.XMLUtils;
+import ru.alfa.homework14.part2.XMLUtils;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

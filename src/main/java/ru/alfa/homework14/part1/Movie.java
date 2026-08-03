@@ -1,4 +1,4 @@
-package ru.alfa.homework14;
+package ru.alfa.homework14.part1;
 
 public class Movie {
     private String name;

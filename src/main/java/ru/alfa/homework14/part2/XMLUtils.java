@@ -1,4 +1,4 @@
-package ru.alfa.homework14;
+package ru.alfa.homework14.part2;
 
 public class XMLUtils {
     public static String createEmptyElement(String tagName) {
