@@ -15,6 +15,17 @@ dependencies {
 
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // Cucumber для Java
+    testImplementation 'io.cucumber:cucumber-java:7.14.1'
+
+    // Cucumber для интеграции с JUnit 5
+    testImplementation 'io.cucumber:cucumber-junit-platform-engine:7.14.1'
+
+    testImplementation 'org.junit.platform:junit-platform-suite:1.9.1'
+
+    // Нужно для запуска JUnit 5 тестов
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.withType(JavaCompile) {
@@ -29,8 +40,11 @@ compileJava {
 test {
     useJUnitPlatform()
 
+    systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
+
     testLogging {
         events "passed", "skipped", "failed"
         exceptionFormat "full"
+        showStandardStreams = true
     }
 }
