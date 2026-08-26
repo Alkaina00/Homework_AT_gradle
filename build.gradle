@@ -16,16 +16,15 @@ dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 
-    // Cucumber для Java
-    testImplementation 'io.cucumber:cucumber-java:7.14.1'
+    testImplementation 'org.junit.platform:junit-platform-suite:1.9.1'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-    // Cucumber для интеграции с JUnit 5
+    testImplementation 'io.cucumber:cucumber-java:7.14.1'
     testImplementation 'io.cucumber:cucumber-junit-platform-engine:7.14.1'
 
-    testImplementation 'org.junit.platform:junit-platform-suite:1.9.1'
-
-    // Нужно для запуска JUnit 5 тестов
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation 'io.rest-assured:rest-assured:5.3.0'
+    testImplementation 'org.hamcrest:hamcrest-all:1.3'
+    testImplementation 'io.rest-assured:json-path:5.3.0'
 }
 
 tasks.withType(JavaCompile) {
