@@ -48,13 +48,7 @@ public class ServeRestTest {
     @Order(2)
     @Test
     public void shouldFindUserByEmail() {
-        String userEmail = given()
-                .when()
-                .get("/usuarios")
-                .then()
-                .statusCode(200)
-                .extract()
-                .path("usuarios[0].email");
+        String userEmail = getFirstUserEmail();
 
         given()
                 .queryParam("email", userEmail)
@@ -66,6 +60,17 @@ public class ServeRestTest {
                 .body("usuarios[0].email", equalTo(userEmail));
 
         System.out.println("Найден email первого пользователя: " + userEmail);
+    }
+
+    // Переиспользуемый шаг: получаем email первого пользователя из каталога
+    private static String getFirstUserEmail() {
+        return given()
+                .when()
+                .get("/usuarios")
+                .then()
+                .statusCode(200)
+                .extract()
+                .path("usuarios[0].email");
     }
 
     // Задание 4. «Открываем новый аккаунт» — POST
